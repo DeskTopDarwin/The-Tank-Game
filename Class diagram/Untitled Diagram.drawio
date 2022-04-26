@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-26T05:28:46.118Z" agent="5.0 (Windows)" etag="feMs3b2NJwDgy47KVBUj" version="17.4.6" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-26T05:55:49.927Z" agent="5.0 (Windows)" etag="x1LKbcJklHkWqRYVfkZU" version="17.4.6" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1298" dy="1839" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -39,6 +39,9 @@
         <mxCell id="ZGp9WstBW97Z-VCttyZm-25" value="Shooting" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="400" y="190" width="110" height="50" as="geometry" />
         </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-26" target="ZGp9WstBW97Z-VCttyZm-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="ZGp9WstBW97Z-VCttyZm-26" value="Movement" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="410" y="310" width="110" height="50" as="geometry" />
         </mxCell>
@@ -57,7 +60,7 @@
         </UserObject>
         <UserObject label="Move to firing range of target" placeholders="1" name="Variable" id="ZGp9WstBW97Z-VCttyZm-34">
           <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-            <mxGeometry x="550" y="180" width="80" height="60" as="geometry" />
+            <mxGeometry x="460" y="240" width="80" height="60" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="ZGp9WstBW97Z-VCttyZm-35" value="Infantry &amp;amp;tanks " style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
@@ -131,6 +134,81 @@
         <UserObject label="When player is on captured base he will get rearmed overtime" placeholders="1" name="Variable" id="ZGp9WstBW97Z-VCttyZm-59">
           <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
             <mxGeometry x="1010" y="70" width="110" height="75" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-60" value="Player" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="510" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-61" value="Tank" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="670" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-62" target="ZGp9WstBW97Z-VCttyZm-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-62" target="ZGp9WstBW97Z-VCttyZm-72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-62" value="Controls" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="720" y="670" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-64" target="ZGp9WstBW97Z-VCttyZm-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-64" target="ZGp9WstBW97Z-VCttyZm-72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-64" value="Mouse Aim" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="720" y="590" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-66" target="ZGp9WstBW97Z-VCttyZm-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-66" value="Armor" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="830" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-68" target="ZGp9WstBW97Z-VCttyZm-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-68" value="Incoming hit" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="505" y="830" width="110" height="50" as="geometry" />
+        </mxCell>
+        <UserObject label="Enemy shot incoming to armor" placeholders="1" name="Variable" id="ZGp9WstBW97Z-VCttyZm-70">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+            <mxGeometry x="410" y="790" width="80" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Enemy could have reduced to totaly nullified hit value due to armor beeing effective" placeholders="1" name="Variable" id="ZGp9WstBW97Z-VCttyZm-71">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+            <mxGeometry x="224.5" y="740" width="105" height="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-72" target="ZGp9WstBW97Z-VCttyZm-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-72" value="Shooting" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="500" y="570" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-73" target="ZGp9WstBW97Z-VCttyZm-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-73" value="Movement" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="470" y="670" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-81" target="ZGp9WstBW97Z-VCttyZm-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-81" value="Infantry" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="640" y="60" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZGp9WstBW97Z-VCttyZm-85" target="ZGp9WstBW97Z-VCttyZm-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZGp9WstBW97Z-VCttyZm-85" value="Spawning" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="640" y="260" width="110" height="50" as="geometry" />
+        </mxCell>
+        <UserObject label="Every new wave enememies are spawned" placeholders="1" name="Variable" id="ZGp9WstBW97Z-VCttyZm-86">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+            <mxGeometry x="690" y="160" width="105" height="70" as="geometry" />
           </mxCell>
         </UserObject>
       </root>
