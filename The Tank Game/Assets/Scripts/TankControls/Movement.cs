@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 5f;
-    public float turningSpeed = 30f;
+    public float speed;
+    public float turningSpeed;
+    public float maxSpeed;
+    public float minSpeed;
 
     private Rigidbody tankRb;
     // Start is called before the first frame update
@@ -30,20 +32,27 @@ public class Movement : MonoBehaviour
     }
     private void move()
     {
-        //movement is glitchy as all hell needs to be redoned
-        Vector3 movement = new Vector3(0, 0, 0);
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
-            tankRb.AddForce(transform.forward * 500);
+            tankRb.AddForce(transform.forward * speed);
+            speedLimiterOnVector(tankRb.velocity);
         }
-
 
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
-            tankRb.AddForce(-transform.forward * 500);
+            tankRb.AddForce(transform.forward * -speed);
+            speedLimiterOnVector(tankRb.velocity);
         }
-
     }
+
+    private void speedLimiterOnVector(Vector3 velocity)
+    {
+        velocity.y = Mathf.Clamp(velocity.y, minSpeed, maxSpeed);
+        velocity.x = Mathf.Clamp(velocity.x, minSpeed, maxSpeed);
+        velocity.z = Mathf.Clamp(velocity.z, minSpeed, maxSpeed);
+        tankRb.velocity = velocity;
+    }
+
     private void turn()
     {
         float turn = 0;
