@@ -24,10 +24,11 @@ public class TurretMovement : MonoBehaviour
 
     private void setTurretRotation()
     { 
-        //i have no clue why the f* it doesnt work
+        
 
-        float angle = camera.transform.rotation.y;
-        turret.transform.localRotation = Quaternion.Euler(0, angle, 0);
+        float angle = camera.transform.eulerAngles.y;
+        //Debug.Log("camera angle: " + camera.transform.rotation.y + ", " + Quaternion.Euler(0, angle, 0));
+        turret.transform.rotation = Quaternion.Euler(0, angle, 0);
         //float angle = angleBetweenGameObjects();
         //Debug.Log(angle);
         //turret.transform.rotation = Quaternion.Euler(0, angle, 0);
