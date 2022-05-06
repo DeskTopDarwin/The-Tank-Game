@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseLock : MonoBehaviour
 {
-    public Camera camera;
+    //public Camera camera;
     // Start is called before the first frame update
     void Start()
     {
