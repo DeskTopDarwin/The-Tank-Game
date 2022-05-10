@@ -7,7 +7,7 @@ public class Navigation : MonoBehaviour
 {
 
 
-    public Transform destination;
+    //public Transform destination;
     public int destinationOffset = 4;
 
     private NavMeshAgent navMeshAgent;
@@ -29,6 +29,7 @@ public class Navigation : MonoBehaviour
         }
 
         GoToClosesCapturePoint();
+        Debug.Log(orignalDestination);
         //navMeshAgent.SetDestination(destination.position);
     }
 
@@ -69,16 +70,18 @@ public class Navigation : MonoBehaviour
 
     private void GoToClosesCapturePoint()
     {
-        Vector3 closesPoint; ;
-        float distance;
+        Vector3 closesPoint; 
+        float distance = float.MaxValue;
 
         //servers both as default value and initialisation
         closesPoint = capturePoints[0].transform.position;
-        distance = closesPoint.magnitude;
+
+        Debug.Log("Distance: " + distance);
+        Debug.Log("default closes: " + closesPoint);
         
         foreach (var point in capturePoints)
         {
-            Vector3 betweenSelfAndPoint = transform.position - point.transform.position;
+            Vector3 betweenSelfAndPoint = point.transform.position - transform.position;
             float tempValue = betweenSelfAndPoint.magnitude;
 
             if (tempValue < distance)
@@ -94,13 +97,15 @@ public class Navigation : MonoBehaviour
 
     private Vector3 OffSetDestination(Vector3 target)
     {
-        System.Random random = new System.Random();
-        
-        double valX = (random.NextDouble() * (destinationOffset - -destinationOffset) + -destinationOffset);
+        Debug.Log("True orginal target: " + target);
+
+        double valX =  target.x + (Random.value * (destinationOffset - -destinationOffset) + -destinationOffset);
         target.x = (float)valX;
 
-        double valZ = (random.NextDouble() * (destinationOffset - -destinationOffset) + -destinationOffset);
+        double valZ = target.z + (Random.value * (destinationOffset - -destinationOffset) + -destinationOffset);
         target.z = (float)valZ;
+
+        Debug.Log("After offset mod: " + target);
 
         return target;
     }
