@@ -8,10 +8,11 @@ public class Navigation : MonoBehaviour
 
 
     public Transform destination;
+    public int destinationOffset = 4;
 
-    NavMeshAgent navMeshAgent;
+    private NavMeshAgent navMeshAgent;
+    private Vector3 orignalDestination;
 
-    private int offset = 4;
     static List<GameObject> capturePoints;
 
     // Start is called before the first frame update
@@ -27,7 +28,7 @@ public class Navigation : MonoBehaviour
             Debug.LogError("navMesh agent component not present in" + gameObject.name);
         }
 
-
+        GoToClosesCapturePoint();
         //navMeshAgent.SetDestination(destination.position);
     }
 
@@ -66,7 +67,7 @@ public class Navigation : MonoBehaviour
         SetNavDestination(transform.position);
     }
 
-    private void GetClosesCapturePoint()
+    private void GoToClosesCapturePoint()
     {
         Vector3 closesPoint; ;
         float distance;
@@ -93,14 +94,26 @@ public class Navigation : MonoBehaviour
 
     private Vector3 OffSetDestination(Vector3 target)
     {
+        System.Random random = new System.Random();
+        
+        double valX = (random.NextDouble() * (destinationOffset - -destinationOffset) + -destinationOffset);
+        target.x = (float)valX;
 
+        double valZ = (random.NextDouble() * (destinationOffset - -destinationOffset) + -destinationOffset);
+        target.z = (float)valZ;
 
         return target;
     }
 
     private void SetNavDestination(Vector3 target)
     {
+        orignalDestination = target;
         navMeshAgent.SetDestination(target);
+    }
+
+    private void ReachedDestination()
+    {
+
     }
 
 }
