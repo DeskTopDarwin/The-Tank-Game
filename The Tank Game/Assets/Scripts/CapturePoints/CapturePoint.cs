@@ -29,7 +29,7 @@ public class CapturePoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CaptuePointBrain();
     }
 
     private void OnCollisionStay(Collision collision)
@@ -43,7 +43,7 @@ public class CapturePoint : MonoBehaviour
         {
             // Verify if could be done less expensively
             int unitTeamNumber = contact.thisCollider.GetComponent<Unit>().unitNumber;
-
+            // Value is either 1 or 2. The unit number represent witch team they belong to. 
             if (unitTeamNumber == 1)
                 alliedUnitsPresent++;   
             if (unitTeamNumber == 2)
@@ -59,49 +59,52 @@ public class CapturePoint : MonoBehaviour
         if (alliedUnitsPresent == 0 && enemyUnitsPresent == 0)
             return;
 
+        //Capture point in conflict
+        if (alliedUnitsPresent > 0 && enemyUnitsPresent > 0)
+        {
+            InConflict();
+            return;
+        }
+
         //allied capture
         if (alliedUnitsPresent > 0 && enemyUnitsPresent == 0)
         {
             InCapture(BelongingTeam.ALLIED);
+            return;
         }
 
         //enemy capture
         if (alliedUnitsPresent == 0 && enemyUnitsPresent > 0)
         {
             InCapture(BelongingTeam.ENEMY);
+            return;
         }
-
-        //Capture point in conflict
-        if (alliedUnitsPresent > 0 && enemyUnitsPresent > 0)
-        {
-            InConflict();
-        }
-
     }
 
     /// <summary>
-    /// Team number should either be 1 or 2;
-    /// 1 beeing allied team,
-    /// 2 beeing enemy team.
+    /// 
     /// </summary>
     /// <param name="team"></param>
     private void InCapture(BelongingTeam team)
     {
+
+        //Decapture from enemy
+        if (this.team == BelongingTeam.ENEMY && team == BelongingTeam.ALLIED)
+        {
+            DeCapture();
+        }
+
+        //Decapture from ally
+        if (this.team == BelongingTeam.ALLIED && team == BelongingTeam.ENEMY)
+        {
+            DeCapture();
+        }
+
         //fresh capture
         if (this.team == BelongingTeam.NEUTRAL)
         {
 
         }
-
-        //Decapture from enemy
-        if (this.team == 0)
-        {
-
-        }
-
-        //decapture from ally
-
-
     }
 
     private void InConflict()
