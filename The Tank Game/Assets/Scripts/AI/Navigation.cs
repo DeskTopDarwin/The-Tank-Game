@@ -29,7 +29,7 @@ public class Navigation : MonoBehaviour
         }
 
         GoToClosesCapturePoint();
-        Debug.Log(orignalDestination);
+        //Debug.Log(orignalDestination);
         //navMeshAgent.SetDestination(destination.position);
     }
 
@@ -76,8 +76,8 @@ public class Navigation : MonoBehaviour
         //servers both as default value and initialisation
         closesPoint = capturePoints[0].transform.position;
 
-        Debug.Log("Distance: " + distance);
-        Debug.Log("default closes: " + closesPoint);
+        //Debug.Log("Distance: " + distance);
+        //Debug.Log("default closes: " + closesPoint);
         
         foreach (var point in capturePoints)
         {
@@ -97,7 +97,7 @@ public class Navigation : MonoBehaviour
 
     private Vector3 OffSetDestination(Vector3 target)
     {
-        Debug.Log("True orginal target: " + target);
+        //Debug.Log("True orginal target: " + target);
 
         double valX =  target.x + (Random.value * (destinationOffset - -destinationOffset) + -destinationOffset);
         target.x = (float)valX;
@@ -105,7 +105,7 @@ public class Navigation : MonoBehaviour
         double valZ = target.z + (Random.value * (destinationOffset - -destinationOffset) + -destinationOffset);
         target.z = (float)valZ;
 
-        Debug.Log("After offset mod: " + target);
+        //Debug.Log("After offset mod: " + target);
 
         return target;
     }
