@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Unit))]
 public class Navigation : MonoBehaviour
 {
-
-
+    Unit unit;
     //public Transform destination;
     public int destinationOffset = 4;
 
     private NavMeshAgent navMeshAgent;
     private Vector3 orignalDestination;
+    private GameObject currentCapturePoint;
 
     static List<GameObject> capturePoints;
 
     // Start is called before the first frame update
     void Start()
     {
+        unit = GetComponent<Unit>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         //capturePoints = new List<GameObject>();
         if(capturePoints == null)
@@ -55,17 +57,20 @@ public class Navigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (false)
+        if (navMeshAgent != null && currentCapturePoint != null)
         {
-            //get the nearest capture point   
+            if (navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete && currentCapturePoint.GetComponent<CaptureScript>().CaptureLocked)
+            {
+                //get the nearest capture point   
+                GoToClosesCapturePoint();
+            }
         }
-
     }
 
     //to be used externaly
-    public void StopToAttack()
+    public void PauseTheUnit(bool value)
     {
-        SetNavDestination(transform.position);
+        navMeshAgent.isStopped = value;
     }
 
     private void GoToClosesCapturePoint()
@@ -78,17 +83,26 @@ public class Navigation : MonoBehaviour
 
         //Debug.Log("Distance: " + distance);
         //Debug.Log("default closes: " + closesPoint);
-        
+
         foreach (var point in capturePoints)
         {
+            CaptureScript pointStatus = point.GetComponent<CaptureScript>();
             Vector3 betweenSelfAndPoint = point.transform.position - transform.position;
             float tempValue = betweenSelfAndPoint.magnitude;
+
+            if ((int)pointStatus.pointOwner == unit.UnitNumber)
+            {
+                continue;
+            }
 
             if (tempValue < distance)
             {
                 distance = tempValue;
                 closesPoint = point.transform.position;
+                currentCapturePoint = point;
             }
+
+            
         }
         
         closesPoint =  OffSetDestination(closesPoint);
@@ -115,10 +129,4 @@ public class Navigation : MonoBehaviour
         orignalDestination = target;
         navMeshAgent.SetDestination(target);
     }
-
-    private void ReachedDestination()
-    {
-
-    }
-
 }
