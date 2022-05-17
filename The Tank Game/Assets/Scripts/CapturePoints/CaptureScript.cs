@@ -11,8 +11,8 @@ public class CaptureScript : MonoBehaviour
     public int alliedUnitsPresent;
     public int enemyUnitsPresent;
     
-    public float maxValueOfCapture = 100;
-    public float minValueOfCapture = -100;
+    public float maxValueOfCapture = 100f;
+    public float minValueOfCapture = -100f;
     public bool captureLocked;
     public bool IsInCapture;
     
@@ -31,6 +31,10 @@ public class CaptureScript : MonoBehaviour
                 Mathf.Clamp(value, minValueOfCapture, maxValueOfCapture);
                 _captureValue = value;
             }
+            else
+            {
+                _captureValue = value;
+            }
         }
     }
 
@@ -43,6 +47,8 @@ public class CaptureScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(_captureValue);
+        //CaptureValue++;
         //if capture has not reached a value of capture (either -100 or 100) captureValue should go back down to 0 over time
         if (!captureLocked && !IsInCapture)
         {
@@ -52,7 +58,7 @@ public class CaptureScript : MonoBehaviour
                 {
                     CaptureValue -= CaptureValue * deCaptureRate * Time.deltaTime;
                 }
-
+        
                 if (CaptureValue < 0)
                 {
                     CaptureValue += CaptureValue * deCaptureRate * Time.deltaTime;
@@ -65,25 +71,26 @@ public class CaptureScript : MonoBehaviour
         if (alliedUnitsPresent != 0 || enemyUnitsPresent !=0 )
         {
             //allies capture
-            if (enemyUnitsPresent == 0)
+            if (enemyUnitsPresent == 0 && CaptureValue < maxValueOfCapture)
             {
                 IsInCapture = true;
-                CaptureValue += CaptureValue * captureRate * (alliedUnitsPresent * 0.5f) * Time.deltaTime;
-                if (CaptureValue > maxValueOfCapture - (maxValueOfCapture * 0.0001f))
+                //CaptureValue++;
+                CaptureValue += captureRate * alliedUnitsPresent * Time.deltaTime;
+                if (CaptureValue > maxValueOfCapture - 0.5f) 
                 {
-                    IsLocked(true);
+                    Lock(true);
                     pointOwner = PointOwner.Allied;
                 }
             }
 
             //enemies capture
-            if (alliedUnitsPresent == 0)
+            if (alliedUnitsPresent == 0 && CaptureValue > minValueOfCapture)
             {
                 IsInCapture = true;
-                CaptureValue -= CaptureValue * captureRate * (alliedUnitsPresent * 0.5f) * Time.deltaTime;
-                if (CaptureValue < minValueOfCapture - (minValueOfCapture * 0.0001f))
+                CaptureValue -= captureRate * enemyUnitsPresent * Time.deltaTime;
+                if (CaptureValue < minValueOfCapture - (minValueOfCapture / minValueOfCapture))
                 {
-                    IsLocked(true);
+                    Lock(true);
                     pointOwner = PointOwner.Enemy;
                 }
             }
@@ -109,16 +116,20 @@ public class CaptureScript : MonoBehaviour
         //reset values every frame
         //alliedUnitsPresent = 0;
         //enemyUnitsPresent = 0;
-        Debug.Log("Trigger called");
+        //Debug.Log("Trigger called");
         Debug.Log(collision.gameObject.name + " On : " + gameObject.name);
         Unit unit = collision.gameObject.GetComponent<Unit>();
         if (unit == null)
         {
             Debug.Log("unit is null");
+            return;
         }
+
+        //calls many times for no reason
         if (collision.tag == "Player")
         {
-            Debug.Log("Collision");
+            //collision.GetComponent<Rigidbody>().isKinematic = true;
+            //Debug.Log("Collision");
             // Verify if could be done less expensively
             int unitTeamNumber = unit.UnitNumber;
             // Value is either 1 or 2. The unit number represent witch team they belong to. 
@@ -129,18 +140,28 @@ public class CaptureScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            other.GetComponent<Rigidbody>().isKinematic = false;
+        }
+    }
 
-    private void IsLocked(bool value)
+
+    private void Lock(bool value)
     {
         captureLocked = value;
     }
 
     private void VerifyLock()
     {
-        if (CaptureValue < maxValueOfCapture || CaptureValue > minValueOfCapture)
-        {
-            IsLocked(false);
-        }
+        //find alternative to very the lock
+        //if (CaptureValue < maxValueOfCapture || CaptureValue > minValueOfCapture)
+        //{
+        //    Lock(false);
+        //}
     }
 
     public enum PointOwner
