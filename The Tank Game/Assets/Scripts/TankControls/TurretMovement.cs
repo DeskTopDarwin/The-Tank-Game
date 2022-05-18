@@ -13,7 +13,7 @@ public class TurretMovement : MonoBehaviour
     private float cameraAngle;
     private float cannonElevation;
     //private Transform target;
-    private RaycastHit hit;
+    //private RaycastHit hit;
 
     
     void Start()
@@ -40,9 +40,9 @@ public class TurretMovement : MonoBehaviour
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         Vector3 target;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit,9999,~LayerMask.GetMask("CapturePoint", "Tank")))
         {
-            target = hit.transform.position;
+            target = hit.point;
             //Debug.Log("hit something");
         }
         else
@@ -62,9 +62,6 @@ public class TurretMovement : MonoBehaviour
         float distanceC = distanceBetweenCameraTarget.magnitude;
 
         float v = Mathf.Pow(distanceA, 2f) + Mathf.Pow(distanceB, 2f) - Mathf.Pow(distanceC, 2f);
-        var a2 = Mathf.Pow(distanceA, 2f);
-        var b2 = Mathf.Pow(distanceB, 2f);
-        var c2 = Mathf.Pow(distanceC, 2f);
 
         float angleC = Mathf.Acos(v / (2 * (distanceA * distanceB)));
         float angleCDeg = angleC * Mathf.Rad2Deg;
@@ -74,7 +71,7 @@ public class TurretMovement : MonoBehaviour
         float angleOpposedToCannon = Mathf.Sin(heightOppsite / distanceB);
         float angleOpposedToCannonDeg = angleOpposedToCannon * Mathf.Rad2Deg;
 
-        cannonElevation = 180 - (angleOpposedToCannonDeg + angleCDeg);
+        cannonElevation = 180 + (angleOpposedToCannonDeg + angleCDeg);
 
         //cannonElevation = Mathf.Clamp(cannonElevation, -15, 15);
 
