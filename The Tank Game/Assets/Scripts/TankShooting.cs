@@ -99,8 +99,9 @@ public class TankShooting : MonoBehaviour
             rigidbody.AddForce(-cannon.transform.forward * cannonRecoilForce, ForceMode.Impulse);
             if (cannonShellPrefab != null)
             {
-                GameObject shell =  Instantiate(cannonShellPrefab, cannon.transform.forward * shellVelocity, Quaternion.Euler(cannon.transform.eulerAngles));
-                shell.GetComponent<Rigidbody>().velocity = shell.transform.forward * shellVelocity;
+                GameObject shell =  Instantiate(cannonShellPrefab, cannon.transform.forward, cannon.transform.rotation);
+                shell.GetComponent<Rigidbody>().velocity = shell.transform.forward * shellVelocity * Time.deltaTime;
+                Debug.Log("Shell created at: " + shell.transform.position);
             }
         }
     }
