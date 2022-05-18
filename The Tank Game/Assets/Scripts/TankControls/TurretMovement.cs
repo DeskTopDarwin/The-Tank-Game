@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TurretMovement : MonoBehaviour
 {
-    
     public GameObject turret;
     public GameObject cannon;
     public Camera camera;
@@ -32,6 +31,7 @@ public class TurretMovement : MonoBehaviour
         cameraAngle = camera.transform.eulerAngles.y;
         //Debug.Log("camera angle: " + camera.transform.rotation.y + ", " + Quaternion.Euler(0, angle, 0));
         turret.transform.rotation = Quaternion.Euler(0, cameraAngle, 0);
+        //turret.transform.localRotation = Quaternion.Euler(0, turret.transform.eulerAngles.y, 0);
     }
 
     private void setElevatationOnTurret()
