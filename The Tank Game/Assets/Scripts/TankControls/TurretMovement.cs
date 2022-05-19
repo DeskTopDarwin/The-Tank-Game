@@ -40,7 +40,7 @@ public class TurretMovement : MonoBehaviour
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         Vector3 target;
 
-        if (Physics.Raycast(ray, out hit,9999,~LayerMask.GetMask("CapturePoint", "Tank")))
+        if (Physics.Raycast(ray, out hit,9999,~LayerMask.GetMask("CapturePoint", "Tank", "Shell")))
         {
             target = hit.point;
             //Debug.Log("hit something");

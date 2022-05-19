@@ -13,6 +13,8 @@ public class TankShooting : MonoBehaviour
     public float bulletVelocity;
 
     public GameObject cannon;
+    public GameObject cannonTip;
+    public GameObject mgsPortTip;
     public GameObject cannonShellPrefab;
     public GameObject mgsBulletPrefab;
 
@@ -99,8 +101,10 @@ public class TankShooting : MonoBehaviour
             rigidbody.AddForce(-cannon.transform.forward * cannonRecoilForce, ForceMode.Impulse);
             if (cannonShellPrefab != null)
             {
-                GameObject shell =  Instantiate(cannonShellPrefab, cannon.transform.forward, cannon.transform.rotation);
-                shell.GetComponent<Rigidbody>().velocity = shell.transform.forward * shellVelocity * Time.deltaTime;
+                GameObject shell =  Instantiate(cannonShellPrefab, cannonTip.transform.position, cannonTip.transform.rotation);
+                Rigidbody shellRB = shell.GetComponent<Rigidbody>();
+                shellRB.velocity = shell.transform.forward * shellVelocity;
+                shellRB.useGravity = true;
                 Debug.Log("Shell created at: " + shell.transform.position);
             }
         }
@@ -114,8 +118,10 @@ public class TankShooting : MonoBehaviour
             mgsCurrentReload = mgsReloadSpeed;
             if (mgsBulletPrefab != null)
             {
-                GameObject bullet = Instantiate(mgsBulletPrefab, cannon.transform.forward * 10, Quaternion.Euler(cannon.transform.eulerAngles));
-                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletVelocity;
+                GameObject bullet = Instantiate(mgsBulletPrefab, mgsPortTip.transform.position, mgsPortTip.transform.rotation);
+                Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
+                bulletRB.velocity = bullet.transform.forward * bulletVelocity;
+                bulletRB.useGravity = true;
             }
         }
     }
