@@ -6,8 +6,8 @@ public class BulletDamage : MonoBehaviour
 {
     public BulletType type;
 
-    private float bulletDamage = 3;
-    private float shellDamage = 30;
+    private float bulletDamage;
+    private float shellDamage;
     
     public enum BulletType
     {
