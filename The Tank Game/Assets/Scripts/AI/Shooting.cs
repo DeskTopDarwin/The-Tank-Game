@@ -12,8 +12,15 @@ public class Shooting : MonoBehaviour
 
     public Transform target;
     public float delayFindTarget = 5;
+    public float currentCountDownToFindNewTarget;
 
     public GameObject bulletPrefab;
+    public float bulletVelocity;
+    public float reloadTime;
+    public float currentReloadTime;
+    public Transform gunTip;
+
+    public Health selfHealth;
 
     public static HashSet<Transform> alliedUnits = new HashSet<Transform>();
     public static HashSet<Transform> enemyUnits = new HashSet<Transform>();
@@ -26,6 +33,15 @@ public class Shooting : MonoBehaviour
         {
             unitNumber = unitScript.UnitNumber;
         }
+
+        selfHealth = GetComponent<Health>();
+        if (selfHealth == null)
+        {
+            Debug.LogError("Health script must be present in unit");
+        }
+
+        currentCountDownToFindNewTarget = delayFindTarget;
+        currentReloadTime = reloadTime;
     }
 
     // Update is called once per frame
@@ -207,36 +223,78 @@ public class Shooting : MonoBehaviour
     {
         if (target != null)
         {
-            
+            Vector3 direction = target.transform.position - transform.position;
+
+            //set rotation too look at target aka take aim
+            transform.transform.rotation = Quaternion.LookRotation(direction);
+
+            //create a bullet and add velocity to it
+            if (currentReloadTime <= 0)
+            {
+                currentReloadTime = reloadTime;
+                GameObject bullet = Instantiate(bulletPrefab, gunTip.transform.position, Quaternion.Euler(direction));
+                Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
+                bulletRB.velocity = bullet.transform.forward * bulletVelocity;
+                bulletRB.useGravity = true;
+            }
+        }
+    }
+
+    private void ReloadTimer()
+    {
+        currentReloadTime -= Time.deltaTime;
+        currentCountDownToFindNewTarget -= Time.deltaTime;
+    }
 
 
+    private void CheckIfTargetIsAlive()
+    {
+        Health health = target.GetComponent<Health>();
+
+        if (health != null)
+        {
+            if (health.isDead)
+            {
+                RemoveUnitFromCollection(target);
+                target = null;
+            }
         }
     }
 
     private void ShootBrain()
     {
-        //find target within max detection range
+        //after a few seconds should loook for a target
+        if (currentCountDownToFindNewTarget <= 0)
+        {
+            currentCountDownToFindNewTarget = delayFindTarget;
+            //find target within max detection range
 
-        HashSet<Transform> inRangetargets = FindPossibleInRangeTargets();
+            HashSet<Transform> inRangetargets = FindPossibleInRangeTargets();
 
-        //find witch targets are available to shoot via raycast to check for obstruction
+            //find witch targets are available to shoot via raycast to check for obstruction
 
-        HashSet<Transform> availableTargets = FindAvailableTargetsToShoot(inRangetargets);
+            HashSet<Transform> availableTargets = FindAvailableTargetsToShoot(inRangetargets);
 
-        //find the closes one of the available targets
+            //find the closes one of the available targets
 
-        FindClosestAvailableTarget(availableTargets);
+            FindClosestAvailableTarget(availableTargets);
+        }
 
-        //pause the unit movement
+        // if a target is found do the rest
+        if (target != null)
+        {
+            //pause the unit movement
+            MovementPause();
+            //Shoot the unit of opposite side
+            EngagingTarget();
+            
+            //checks if target is still alive
+            CheckIfTargetIsAlive();
+            //if no opposite side units are available to shoot, resume movement.
+        }
 
-        MovementPause();
-        //Shoot the unit of opposite side
-
-        //repeat every few seconds
-
-        //if no opposite side units are available to shoot, resume movement.
-
-
+        //time for gun reload
+        ReloadTimer();
     }
 
     public void AddUnitToCollection(Transform unit)
