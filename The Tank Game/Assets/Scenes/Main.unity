@@ -937,7 +937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: c6acf3f29c109e4439950c8f6a85cb2b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.5
+      value: 15.540001
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: c6acf3f29c109e4439950c8f6a85cb2b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1124,7 +1124,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.1324786, y: 1}
+    m_SensorSize: {x: 2.1254826, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1365,7 +1365,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.1324786, y: 1}
+    m_SensorSize: {x: 2.1254826, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1381,7 +1381,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477479740}
-  m_LocalRotation: {x: 0.071269825, y: 0.0000000074316353, z: -5.3100163e-10, w: 0.9974571}
+  m_LocalRotation: {x: 0.07126983, y: -2.2585604e-18, z: -7.789169e-18, w: 0.9974571}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1437,7 +1437,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.1324786, y: 1}
+    m_SensorSize: {x: 2.1254826, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1649,7 +1649,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.1324786, y: 1}
+    m_SensorSize: {x: 2.1254826, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1665,7 +1665,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744693897}
-  m_LocalRotation: {x: 0.0531148, y: 0.0000000021477615, z: -1.14239194e-10, w: 0.99858844}
+  m_LocalRotation: {x: 0.0531148, y: -0.0000000021477613, z: 1.1423918e-10, w: 0.99858844}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1761,7 +1761,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866135391}
-  m_LocalRotation: {x: 0.05311481, y: 0.000000002217804, z: -1.1052221e-10, w: 0.99858844}
+  m_LocalRotation: {x: 0.05311481, y: -0.0000000022178028, z: 1.10502774e-10, w: 0.99858844}
   m_LocalPosition: {x: 4.343258, y: 3.21, z: -65.845566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2650,7 +2650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6495536569150984232, guid: 637d01b256f6194498a29c8fe7c1a5a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.6
+      value: 9.64
       objectReference: {fileID: 0}
     - target: {fileID: 6495536569150984232, guid: 637d01b256f6194498a29c8fe7c1a5a6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2707,7 +2707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f1915fd2c041340a9cccc63e888390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitNumber: 1
+  UnitNumber: 2
 --- !u!136 &6495536569588580399
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2722,6 +2722,50 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &6495536569588580403 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6495536569150984232, guid: 637d01b256f6194498a29c8fe7c1a5a6, type: 3}
+  m_PrefabInstance: {fileID: 6495536569588580392}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6495536569588580404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6495536569588580393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594d50a4944ccdd458df226f7d739421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  isDead: 0
+--- !u!114 &6495536569588580405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6495536569588580393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4100b3abaee7eaf4bb758e1a1ee85974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friendlyUnitNumber: 1
+  enemyUnitNumber: 2
+  unitNumber: 0
+  maxSearchingRange: 0
+  target: {fileID: 0}
+  delayFindTarget: 5
+  currentCountDownToFindNewTarget: 0
+  bulletPrefab: {fileID: 5283072089402491898, guid: 43466b82c4435f444acd0587195beac4, type: 3}
+  bulletVelocity: 0
+  reloadTime: 0
+  currentReloadTime: 0
+  gunTip: {fileID: 6495536569588580403}
+  selfHealth: {fileID: 0}
 --- !u!1001 &7563922696050263586
 PrefabInstance:
   m_ObjectHideFlags: 0

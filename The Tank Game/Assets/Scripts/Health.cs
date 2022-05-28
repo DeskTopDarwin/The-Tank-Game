@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float health
+    private float hp;
+    public float Hp
     {
-        get { return health; } 
-        private set { health = value; }
+        get { return hp; } 
+        private set { hp = value; }
     }
     public float maxHealth;
 
@@ -15,19 +16,19 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        health = maxHealth;
+        Hp = maxHealth;
         isDead = false;
     }
 
     public void TakeDamage(float value)
     {
-        health -= value;
-        if (health < 0)
+        Hp -= value;
+        if (Hp < 0)
         {
-            health = 0;
+            Hp = 0;
         }
 
-        if (health <= 0)
+        if (Hp <= 0)
         {
             isDead = true;
         }

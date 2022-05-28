@@ -40,6 +40,7 @@ public class Shooting : MonoBehaviour
             Debug.LogError("Health script must be present in unit");
         }
 
+        AddUnitToCollection();
         currentCountDownToFindNewTarget = delayFindTarget;
         currentReloadTime = reloadTime;
     }
@@ -48,7 +49,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         //Make it find target every 5 second
-
+        ShootBrain();
         
     }
 
@@ -86,6 +87,8 @@ public class Shooting : MonoBehaviour
                 }
             }
         }
+
+        //Debug.Log(possibleTargets.Count);
         return possibleTargets;
     }
 
@@ -240,7 +243,7 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    private void ReloadTimer()
+    private void Timers()
     {
         currentReloadTime -= Time.deltaTime;
         currentCountDownToFindNewTarget -= Time.deltaTime;
@@ -263,6 +266,8 @@ public class Shooting : MonoBehaviour
 
     private void ShootBrain()
     {
+        //Debug.Log("number of allied units: " + alliedUnits.Count);
+        //Debug.Log("number of enemy units: " + enemyUnits.Count);
         //after a few seconds should loook for a target
         if (currentCountDownToFindNewTarget <= 0)
         {
@@ -294,17 +299,30 @@ public class Shooting : MonoBehaviour
         }
 
         //time for gun reload
-        ReloadTimer();
+        Timers();
     }
 
-    public void AddUnitToCollection(Transform unit)
+    public void AddUnitToCollection()
     {
-
+        if (unitNumber == friendlyUnitNumber)
+        {
+            alliedUnits.Add(gameObject.transform);
+        }
+        if (unitNumber == enemyUnitNumber)
+        {
+            enemyUnits.Add(gameObject.transform);
+        }
     }
 
     public void RemoveUnitFromCollection(Transform unit)
     {
-
+        if (unitNumber == friendlyUnitNumber)
+        {
+            alliedUnits.Remove(unit);
+        }
+        if (unitNumber == enemyUnitNumber)
+        {
+            enemyUnits.Remove(unit);
+        }
     }
-
 }
