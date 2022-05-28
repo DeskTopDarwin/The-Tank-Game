@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     public float Hp
     {
         get { return hp; } 
-        private set { hp = value; }
+        set { hp = value; }
     }
     public float maxHealth;
 

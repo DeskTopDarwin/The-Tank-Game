@@ -2,28 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Unit))]
 public class Shooting : MonoBehaviour
 {
     public int friendlyUnitNumber = 1;
     public int enemyUnitNumber = 2;
-    public int unitNumber;
+    private int unitNumber;
 
     public int maxSearchingRange;
 
-    public Transform target;
-    public float delayFindTarget = 5;
-    public float currentCountDownToFindNewTarget;
+    private Transform target;
+    public float delayFindTarget;
+    private float currentCountDownToFindNewTarget;
 
     public GameObject bulletPrefab;
     public float bulletVelocity;
     public float reloadTime;
-    public float currentReloadTime;
+    private float currentReloadTime;
     public Transform gunTip;
 
-    public Health selfHealth;
-
-    public static HashSet<Transform> alliedUnits = new HashSet<Transform>();
-    public static HashSet<Transform> enemyUnits = new HashSet<Transform>();
+    private static HashSet<Transform> alliedUnits = new HashSet<Transform>();
+    private static HashSet<Transform> enemyUnits = new HashSet<Transform>();
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +31,6 @@ public class Shooting : MonoBehaviour
         if (unitScript != null)
         {
             unitNumber = unitScript.UnitNumber;
-        }
-
-        selfHealth = GetComponent<Health>();
-        if (selfHealth == null)
-        {
-            Debug.LogError("Health script must be present in unit");
         }
 
         AddUnitToCollection();
@@ -235,10 +228,10 @@ public class Shooting : MonoBehaviour
             if (currentReloadTime <= 0)
             {
                 currentReloadTime = reloadTime;
-                GameObject bullet = Instantiate(bulletPrefab, gunTip.transform.position, Quaternion.Euler(direction));
+                GameObject bullet = Instantiate(bulletPrefab, gunTip.transform.position, Quaternion.LookRotation(direction));
                 Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
                 bulletRB.velocity = bullet.transform.forward * bulletVelocity;
-                bulletRB.useGravity = true;
+                bulletRB.useGravity = false;
             }
         }
     }
@@ -266,8 +259,8 @@ public class Shooting : MonoBehaviour
 
     private void ShootBrain()
     {
-        //Debug.Log("number of allied units: " + alliedUnits.Count);
-        //Debug.Log("number of enemy units: " + enemyUnits.Count);
+        Debug.Log("number of allied units: " + alliedUnits.Count);
+        Debug.Log("number of enemy units: " + enemyUnits.Count);
         //after a few seconds should loook for a target
         if (currentCountDownToFindNewTarget <= 0)
         {

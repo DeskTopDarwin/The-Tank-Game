@@ -58,12 +58,12 @@ public class Movement : MonoBehaviour
         float turn = 0;
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            tankRb.AddTorque(new Vector3(0, 300, 0));
+            tankRb.AddTorque(new Vector3(0, 400, 0));
         }
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            tankRb.AddTorque(new Vector3(0,-300,0));
+            tankRb.AddTorque(new Vector3(0,-400,0));
         }
 
         Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
