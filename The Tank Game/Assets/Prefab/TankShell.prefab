@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1349845096874916509}
   - component: {fileID: 7596690884820237362}
   - component: {fileID: 4793812399075180202}
+  - component: {fileID: 4068091464646642062}
+  - component: {fileID: 4726512151837069920}
   m_Layer: 10
   m_Name: TankShell
   m_TagString: Untagged
@@ -127,3 +129,29 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &4068091464646642062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349845096874916508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8108b5213830cc44eb383ad86ac22888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+--- !u!114 &4726512151837069920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349845096874916508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b17eaaec18de48458ca3091b85c8f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforSelfDestroy: 8

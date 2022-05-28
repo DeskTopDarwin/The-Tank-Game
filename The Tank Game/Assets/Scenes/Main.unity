@@ -653,7 +653,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 711bad159df31524ca17958a0c56fbf5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -914,10 +914,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawningOffset: 10
-  numberToSpawnAtStart: 30
+  numberToSpawnAtStart: 15
+  maxUnitsOnMap: 0
   spawningTimeIntervalDuringGame: 30
   unitToSpawnEachCycle: 5
-  unitHealth: 0
+  unitHealth: 100
   friendlyUnitNumber: 1
   enemyUnitNumber: 2
   alliedSpawn: {fileID: 1684489280}
@@ -1308,7 +1309,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477479740}
-  m_LocalRotation: {x: 0.071269825, y: -0.0000000074316353, z: 5.3100163e-10, w: 0.9974571}
+  m_LocalRotation: {x: 0.07126983, y: -2.2585604e-18, z: -7.789169e-18, w: 0.9974571}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1680,7 +1681,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744693897}
-  m_LocalRotation: {x: 0.0531148, y: -0.0000000021477613, z: 1.1423918e-10, w: 0.99858844}
+  m_LocalRotation: {x: 0.0531148, y: 0.0000000021477615, z: -1.14239194e-10, w: 0.99858844}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1776,7 +1777,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866135391}
-  m_LocalRotation: {x: 0.05311481, y: -0.000000002217804, z: 1.1052221e-10, w: 0.99858844}
+  m_LocalRotation: {x: 0.05311481, y: 0.0000000022178028, z: -1.10502774e-10, w: 0.99858844}
   m_LocalPosition: {x: 4.343258, y: 3.21, z: -65.845566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

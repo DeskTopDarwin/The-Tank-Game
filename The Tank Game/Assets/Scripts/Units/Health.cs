@@ -8,16 +8,25 @@ public class Health : MonoBehaviour
     public float Hp
     {
         get { return hp; } 
-        set { hp = value; }
+        private set { hp = value; }
     }
     public float maxHealth;
-
     public bool isDead;
 
     private void Start()
     {
         Hp = maxHealth;
         isDead = false;
+    }
+
+    private void Update()
+    {
+        if (Hp <= 0)
+        {
+            isDead = true;
+            Debug.Log("i deded");
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float value)

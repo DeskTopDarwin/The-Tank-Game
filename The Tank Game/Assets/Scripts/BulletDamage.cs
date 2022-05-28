@@ -4,33 +4,42 @@ using UnityEngine;
 
 public class BulletDamage : MonoBehaviour
 {
-    public BulletType type;
-
-    private float bulletDamage;
-    private float shellDamage;
-    
-    public enum BulletType
-    {
-        Bullet,
-        Shell
-    }
-
+    public float damage;
     private void OnCollisionEnter(Collision collision)
     {
         Health gameObjectHit = collision.gameObject.GetComponent<Health>();
-        if (gameObjectHit == null)
-            return;
-
-        if (type == BulletType.Bullet)
+        if (gameObjectHit != null)
         {
-            gameObjectHit.TakeDamage(bulletDamage);
-            return;
-        }
-
-        if (type == BulletType.Shell)
-        {
-            gameObjectHit.TakeDamage(shellDamage);
+            gameObjectHit.TakeDamage(damage);
         }
     }
 
+    //public BulletType type;
+    //
+    //private float bulletDamage;
+    //private float shellDamage;
+    //
+    //public enum BulletType
+    //{
+    //    Bullet,
+    //    Shell
+    //}
+    //
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Health gameObjectHit = collision.gameObject.GetComponent<Health>();
+    //    if (gameObjectHit == null)
+    //        return;
+    //
+    //    if (type == BulletType.Bullet)
+    //    {
+    //        gameObjectHit.TakeDamage(bulletDamage);
+    //        return;
+    //    }
+    //
+    //    if (type == BulletType.Shell)
+    //    {
+    //        gameObjectHit.TakeDamage(shellDamage);
+    //    }
+    //}
 }

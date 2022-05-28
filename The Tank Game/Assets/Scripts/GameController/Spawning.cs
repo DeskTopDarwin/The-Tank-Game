@@ -7,9 +7,13 @@ public class Spawning : MonoBehaviour
     public float spawningOffset;
     public int numberToSpawnAtStart;
 
+    public int maxUnitsOnMap;
+    private int currentAmountUnitOnMap;
     public float spawningTimeIntervalDuringGame;
     public int unitToSpawnEachCycle;
     private float currentTimerSpawning;
+    
+
     public float unitHealth;
 
     public int friendlyUnitNumber;
@@ -47,7 +51,6 @@ public class Spawning : MonoBehaviour
         }
     }
 
-
     private void TimerCountDown()
     {
         currentTimerSpawning -= Time.deltaTime; 
@@ -73,12 +76,14 @@ public class Spawning : MonoBehaviour
     private void SpawnAlliedUnit() 
     {
         Debug.Log("Spawned allied unit");
+        currentAmountUnitOnMap++;
+
         Vector3 spawnPoint = alliedSpawn.position;
         spawnPoint = OffSetDestination(spawnPoint);
 
         GameObject spawnedUnit = Instantiate(AlliedUnitPrefab, spawnPoint, Quaternion.identity);
         spawnedUnit.GetComponent<Unit>().UnitNumber = friendlyUnitNumber;
-        spawnedUnit.GetComponent<Health>().Hp = unitHealth;
+        spawnedUnit.GetComponent<Health>().maxHealth = unitHealth;
         //Shooting shootingScript = spawnedUnit.GetComponent<Shooting>(); 
         //shootingScript.
 
@@ -87,12 +92,25 @@ public class Spawning : MonoBehaviour
     private void SpawnEnemyUnit()
     {
         Debug.Log("Spawned enemy unit");
+        currentAmountUnitOnMap++;
 
         Vector3 spawnPoint = enemySpawn.position;
         spawnPoint = OffSetDestination(spawnPoint);
 
         GameObject spawnedUnit = Instantiate(EnemyUnitPrefab, spawnPoint, Quaternion.identity);
         spawnedUnit.GetComponent<Unit>().UnitNumber = enemyUnitNumber;
-        spawnedUnit.GetComponent<Health>().Hp = unitHealth;
+        spawnedUnit.GetComponent<Health>().maxHealth = unitHealth;
+    }
+
+    public void RemoveSpawnedUnitCount(int value)
+    {
+        if (currentAmountUnitOnMap > 0)
+        {
+            currentAmountUnitOnMap -= value;
+            if (currentAmountUnitOnMap < 0)
+            {
+                currentAmountUnitOnMap = 0;
+            }
+        }
     }
 }

@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [RequireComponent(typeof(Unit))]
+[RequireComponent(typeof(Navigation))]
+[RequireComponent (typeof(Health))]
+
 public class Shooting : MonoBehaviour
 {
     public int friendlyUnitNumber = 1;
@@ -21,6 +25,8 @@ public class Shooting : MonoBehaviour
     private float currentReloadTime;
     public Transform gunTip;
 
+    private Navigation nav;
+
     private static HashSet<Transform> alliedUnits = new HashSet<Transform>();
     private static HashSet<Transform> enemyUnits = new HashSet<Transform>();
 
@@ -31,6 +37,12 @@ public class Shooting : MonoBehaviour
         if (unitScript != null)
         {
             unitNumber = unitScript.UnitNumber;
+        }
+
+        nav = GetComponent<Navigation>();
+        if (nav == null)
+        {
+            Debug.Log("Naviguation is needed and not present");
         }
 
         AddUnitToCollection();
@@ -199,18 +211,12 @@ public class Shooting : MonoBehaviour
     /// </summary>
     private void MovementPause()
     {
-        Navigation nav = GetComponent<Navigation>();
         if (target != null)
         {
             if (nav != null)
             {
                 nav.PauseTheUnit(true);
             }
-        }
-
-        if (target == null)
-        {
-            nav.PauseTheUnit(false);
         }
     }
 
@@ -285,10 +291,14 @@ public class Shooting : MonoBehaviour
             MovementPause();
             //Shoot the unit of opposite side
             EngagingTarget();
-            
             //checks if target is still alive
             CheckIfTargetIsAlive();
             //if no opposite side units are available to shoot, resume movement.
+        }
+
+        if (target == null)
+        {
+            nav.PauseTheUnit(false);
         }
 
         //time for gun reload
