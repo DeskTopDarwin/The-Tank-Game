@@ -270,8 +270,8 @@ public class Shooting : MonoBehaviour
 
     private void ShootBrain()
     {
-        Debug.Log("number of allied units: " + alliedUnits.Count);
-        Debug.Log("number of enemy units: " + enemyUnits.Count);
+        //Debug.Log("number of allied units: " + alliedUnits.Count);
+        //Debug.Log("number of enemy units: " + enemyUnits.Count);
         //after a few seconds should loook for a target
         if (currentCountDownToFindNewTarget <= 0)
         {

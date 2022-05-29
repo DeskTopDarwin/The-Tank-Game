@@ -5,14 +5,32 @@ using UnityEngine;
 public class BulletDamage : MonoBehaviour
 {
     public float damage;
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log("object hit: " + collision.gameObject.name);
+    //    Health gameObjectHit = collision.gameObject.GetComponent<Health>();
+    //    if (gameObjectHit != null)
+    //    {
+    //        //Debug.Log("Bullet hit for: " + damage);
+    //        gameObjectHit.TakeDamage(damage);
+    //    }
+    //}
+
+    private void Update()
     {
-        Health gameObjectHit = collision.gameObject.GetComponent<Health>();
-        if (gameObjectHit != null)
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 2, ~LayerMask.GetMask("CapturePoint")))
         {
-            Debug.Log("Bullet hit");
-            gameObjectHit.TakeDamage(damage);
-        }
+            //Debug.Log("object hit: " + hit.transform.name);
+            Health gameObjectHit = hit.transform.GetComponent<Health>();
+            if (gameObjectHit != null)
+            {
+                Debug.Log("hit: " + hit.transform.name);
+                //Debug.Log("Bullet hit for: " + damage);
+                gameObjectHit.TakeDamage(damage);
+            }
+            Destroy(gameObject);
+        }    
     }
 
     //public BulletType type;

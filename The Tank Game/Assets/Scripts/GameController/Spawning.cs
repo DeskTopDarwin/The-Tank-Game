@@ -75,7 +75,7 @@ public class Spawning : MonoBehaviour
 
     private void SpawnAlliedUnit() 
     {
-        Debug.Log("Spawned allied unit");
+        //Debug.Log("Spawned allied unit");
         currentAmountUnitOnMap++;
 
         Vector3 spawnPoint = alliedSpawn.position;
@@ -91,7 +91,7 @@ public class Spawning : MonoBehaviour
 
     private void SpawnEnemyUnit()
     {
-        Debug.Log("Spawned enemy unit");
+        //Debug.Log("Spawned enemy unit");
         currentAmountUnitOnMap++;
 
         Vector3 spawnPoint = enemySpawn.position;

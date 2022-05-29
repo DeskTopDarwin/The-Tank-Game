@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Unit))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class Navigation : MonoBehaviour
 {
     Unit unit;

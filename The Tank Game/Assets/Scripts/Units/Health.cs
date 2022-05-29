@@ -35,10 +35,10 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float value)
     {
+        Debug.Log("took: " + value + " of damage");
         Hp -= value;
         if (Hp <= 0)
         {
-            Hp = 0;
             isDead = true;
         }
     }

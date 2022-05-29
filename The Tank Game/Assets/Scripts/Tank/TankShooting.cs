@@ -105,7 +105,7 @@ public class TankShooting : MonoBehaviour
                 Rigidbody shellRB = shell.GetComponent<Rigidbody>();
                 shellRB.velocity = shell.transform.forward * shellVelocity;
                 shellRB.useGravity = true;
-                Debug.Log("Shell created at: " + shell.transform.position);
+                //Debug.Log("Shell created at: " + shell.transform.position);
             }
         }
     }
@@ -121,7 +121,7 @@ public class TankShooting : MonoBehaviour
                 GameObject bullet = Instantiate(mgsBulletPrefab, mgsPortTip.transform.position, mgsPortTip.transform.rotation);
                 Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
                 bulletRB.velocity = bullet.transform.forward * bulletVelocity;
-                bulletRB.useGravity = true;
+                bulletRB.useGravity = false;
             }
         }
     }

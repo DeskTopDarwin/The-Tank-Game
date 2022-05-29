@@ -119,7 +119,7 @@ public class CaptureScript : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         //Debug.Log("Trigger called");
-        Debug.Log(collision.gameObject.name + " On : " + gameObject.name);
+        //Debug.Log(collision.gameObject.name + " On : " + gameObject.name);
         Unit unit = collision.gameObject.GetComponent<Unit>();
         if (unit == null)
         {
