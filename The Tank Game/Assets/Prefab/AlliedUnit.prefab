@@ -238,7 +238,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7163642170036394242}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   isDead: 0
+  delayBeforDelete: 1
 --- !u!114 &6495536569588580405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +288,6 @@ MonoBehaviour:
   maxSearchingRange: 20
   delayFindTarget: 1
   bulletPrefab: {fileID: 5283072089402491898, guid: 43466b82c4435f444acd0587195beac4, type: 3}
-  bulletVelocity: 20
+  bulletVelocity: 15
   reloadTime: 2
   gunTip: {fileID: 1034368209}

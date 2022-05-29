@@ -10,6 +10,7 @@ public class BulletDamage : MonoBehaviour
         Health gameObjectHit = collision.gameObject.GetComponent<Health>();
         if (gameObjectHit != null)
         {
+            Debug.Log("Bullet hit");
             gameObjectHit.TakeDamage(damage);
         }
     }

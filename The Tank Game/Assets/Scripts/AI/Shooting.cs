@@ -85,10 +85,13 @@ public class Shooting : MonoBehaviour
         {
             foreach (var unit in alliedUnits)
             {
-                Transform tempValue = CheckPossibleInRangeUnit(unit);
-                if (tempValue != null)
-                {
-                    possibleTargets.Add(tempValue);
+                if(unit != null) 
+                { 
+                    Transform tempValue = CheckPossibleInRangeUnit(unit);
+                    if (tempValue != null)
+                    {
+                        possibleTargets.Add(tempValue);
+                    }
                 }
             }
         }
@@ -194,14 +197,16 @@ public class Shooting : MonoBehaviour
     private Transform CheckPossibleInRangeUnit(Transform unit)
     {
         Transform possibleTarget = null;
-        Vector3 vectorDistance = unit.transform.position - transform.position;
-        float magnitude = vectorDistance.magnitude;
-
-        if (magnitude <= maxSearchingRange)
+        if (unit != null)
         {
-            possibleTarget = unit;
+            Vector3 vectorDistance = unit.transform.position - transform.position;
+            float magnitude = vectorDistance.magnitude;
+            
+            if (magnitude <= maxSearchingRange)
+            {
+                possibleTarget = unit;
+            }
         }
-
         return possibleTarget;
     }
 

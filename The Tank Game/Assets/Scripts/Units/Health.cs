@@ -13,10 +13,14 @@ public class Health : MonoBehaviour
     public float maxHealth;
     public bool isDead;
 
+    public float delayBeforDelete;
+    private float currentDelayBeforDelete;
+
     private void Start()
     {
         Hp = maxHealth;
         isDead = false;
+        currentDelayBeforDelete = delayBeforDelete;
     }
 
     private void Update()
@@ -25,21 +29,31 @@ public class Health : MonoBehaviour
         {
             isDead = true;
             Debug.Log("i deded");
-            Destroy(gameObject);
         }
+        selfDestroy();
     }
 
     public void TakeDamage(float value)
     {
         Hp -= value;
-        if (Hp < 0)
-        {
-            Hp = 0;
-        }
-
         if (Hp <= 0)
         {
+            Hp = 0;
             isDead = true;
         }
     }
+
+    private void selfDestroy()
+    {
+        if (isDead)
+        {
+            currentDelayBeforDelete -= Time.deltaTime;
+            if (currentDelayBeforDelete <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+
 }
