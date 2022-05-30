@@ -43,10 +43,13 @@ public class Spawning : MonoBehaviour
         if (currentTimerSpawning <= 0)
         {
             currentTimerSpawning = spawningTimeIntervalDuringGame;
-            for (int i = 0; i < unitToSpawnEachCycle; i++)
+            if (currentAmountUnitOnMap < maxUnitsOnMap)
             {
-                SpawnAlliedUnit();
-                SpawnEnemyUnit();
+                for (int i = 0; i < unitToSpawnEachCycle; i++)
+                {
+                    SpawnAlliedUnit();
+                    SpawnEnemyUnit();
+                }
             }
         }
     }

@@ -19,8 +19,4 @@ public class Unit : MonoBehaviour
             _unitNumber = value;
         }
     }
-    private void Start()
-    {
-        UnitNumber = 1;
-    }
 }

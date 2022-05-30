@@ -28,14 +28,14 @@ public class Health : MonoBehaviour
         if (Hp <= 0)
         {
             isDead = true;
-            Debug.Log("i deded");
+            //Debug.Log("i deded");
         }
         selfDestroy();
     }
 
     public void TakeDamage(float value)
     {
-        Debug.Log("took: " + value + " of damage");
+        //Debug.Log("took: " + value + " of damage");
         Hp -= value;
         if (Hp <= 0)
         {

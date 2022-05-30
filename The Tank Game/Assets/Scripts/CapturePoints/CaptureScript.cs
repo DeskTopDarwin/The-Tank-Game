@@ -101,6 +101,13 @@ public class CaptureScript : MonoBehaviour
             }
         }
 
+        //attempt to resolve ownership
+        //if (alliedUnitsPresent == 0 && enemyUnitsPresent == 0 && !CaptureLocked)
+        //{
+        //    Debug.Log("point is still neutral ish");
+        //    pointOwner = PointOwner.Neutral;
+        //}
+
         //checks if point is actualy beeing captured.
         if (alliedUnitsPresent == 0 && enemyUnitsPresent == 0)
         {
@@ -134,6 +141,7 @@ public class CaptureScript : MonoBehaviour
             //Debug.Log("Collision");
             // Verify if could be done less expensively
             int unitTeamNumber = unit.UnitNumber;
+            Debug.Log("unitnumber of unit entering in : " + gameObject.name + " : " + unit.UnitNumber);
             // Value is either 1 or 2. The unit number represent witch team they belong to. 
             if (unitTeamNumber == 1)
                 alliedUnitsPresent++;

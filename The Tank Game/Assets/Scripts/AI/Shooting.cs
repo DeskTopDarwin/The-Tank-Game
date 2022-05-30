@@ -11,7 +11,7 @@ public class Shooting : MonoBehaviour
 {
     public int friendlyUnitNumber = 1;
     public int enemyUnitNumber = 2;
-    private int unitNumber;
+    public int unitNumber;
 
     public int maxSearchingRange;
 
