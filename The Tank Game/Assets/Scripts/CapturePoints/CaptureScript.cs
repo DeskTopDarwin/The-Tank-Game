@@ -201,4 +201,7 @@ public class CaptureScript : MonoBehaviour
         Allied = 1,
         Enemy = 2
     }
+
+
+
 }

@@ -98,7 +98,7 @@ public class Shooting : MonoBehaviour
         }
 
         //Debug.Log(possibleTargets.Count);
-        Debug.Log(gameObject.name + " possible targets in range: " + possibleTargets.Count);
+        //Debug.Log(gameObject.name + " possible targets in range: " + possibleTargets.Count);
         return possibleTargets;
     }
 
@@ -127,7 +127,7 @@ public class Shooting : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(gunTip.position, direction, out hit))
             {
-                Debug.DrawRay(gunTip.position, direction * hit.distance, Color.red);
+                //Debug.DrawRay(gunTip.position, direction * hit.distance, Color.red);
                 Unit unitScript = hit.transform.GetComponent<Unit>();
 
                 if (unitScript != null)
@@ -136,7 +136,7 @@ public class Shooting : MonoBehaviour
                 }
             }
         }
-        Debug.Log(gameObject.name + " number of available targets to shoot (raycast): " + availableTargets.Count);
+        //Debug.Log(gameObject.name + " number of available targets to shoot (raycast): " + availableTargets.Count);
         return availableTargets;
     }
 
@@ -163,10 +163,10 @@ public class Shooting : MonoBehaviour
             }
         }
         //Debug.Log("Reached final state of targeting");
-        if (target == null)
-        {
-            Debug.Log(gameObject.name + " didnt find a target");
-        }
+        //if (target == null)
+        //{
+        //    Debug.Log(gameObject.name + " didnt find a target");
+        //}
         target = possibleFinalTarget;
     }
 
