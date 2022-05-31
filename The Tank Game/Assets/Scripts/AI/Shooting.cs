@@ -15,14 +15,14 @@ public class Shooting : MonoBehaviour
 
     public int maxSearchingRange;
 
-    private Transform target;
+    public Transform target;
     public float delayFindTarget;
-    private float currentCountDownToFindNewTarget;
+    public float currentCountDownToFindNewTarget;
 
     public GameObject bulletPrefab;
     public float bulletVelocity;
     public float reloadTime;
-    private float currentReloadTime;
+    public float currentReloadTime;
     public Transform gunTip;
 
     private Navigation nav;
@@ -55,7 +55,8 @@ public class Shooting : MonoBehaviour
     {
         //Make it find target every 5 second
         ShootBrain();
-        
+        //Debug.Log("friendly unit in shooting: " + alliedUnits.Count);
+        //Debug.Log("enemy unit in shooting" + enemyUnits.Count);
     }
 
     /// <summary>
@@ -97,6 +98,7 @@ public class Shooting : MonoBehaviour
         }
 
         //Debug.Log(possibleTargets.Count);
+        Debug.Log(gameObject.name + " possible targets in range: " + possibleTargets.Count);
         return possibleTargets;
     }
 
@@ -119,20 +121,22 @@ public class Shooting : MonoBehaviour
 
         foreach (var unit in inRangeTargets)
         {
-            Vector3 direction = unit.transform.position - transform.position;
+            Vector3 direction = unit.transform.position - gunTip.position;
+            direction.y = direction.y + 1;
 
             RaycastHit hit;
-            if (Physics.Raycast(this.transform.position, direction, out hit))
+            if (Physics.Raycast(gunTip.position, direction, out hit))
             {
+                Debug.DrawRay(gunTip.position, direction * hit.distance, Color.red);
                 Unit unitScript = hit.transform.GetComponent<Unit>();
 
                 if (unitScript != null)
                 {
-                    availableTargets.Add(unitScript.transform);
+                    availableTargets.Add(unit);
                 }
             }
         }
-
+        Debug.Log(gameObject.name + " number of available targets to shoot (raycast): " + availableTargets.Count);
         return availableTargets;
     }
 
@@ -158,7 +162,11 @@ public class Shooting : MonoBehaviour
                 possibleFinalTarget = tempValue;
             }
         }
-
+        //Debug.Log("Reached final state of targeting");
+        if (target == null)
+        {
+            Debug.Log(gameObject.name + " didnt find a target");
+        }
         target = possibleFinalTarget;
     }
 

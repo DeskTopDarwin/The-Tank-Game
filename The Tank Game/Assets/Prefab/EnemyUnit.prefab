@@ -324,11 +324,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyUnitNumber: 1
   enemyUnitNumber: 2
+  unitNumber: 0
   maxSearchingRange: 20
-  delayFindTarget: 1
+  target: {fileID: 0}
+  delayFindTarget: 0
+  currentCountDownToFindNewTarget: 0
   bulletPrefab: {fileID: 5283072089402491898, guid: 43466b82c4435f444acd0587195beac4, type: 3}
   bulletVelocity: 15
   reloadTime: 2
+  currentReloadTime: 0
   gunTip: {fileID: 144123149}
 --- !u!114 &1880818904
 MonoBehaviour:

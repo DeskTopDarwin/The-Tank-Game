@@ -52,6 +52,7 @@ public class Spawning : MonoBehaviour
                 }
             }
         }
+        //Debug.Log("ammount of unit spawned according to what spawned: " + currentAmountUnitOnMap);
     }
 
     private void TimerCountDown()

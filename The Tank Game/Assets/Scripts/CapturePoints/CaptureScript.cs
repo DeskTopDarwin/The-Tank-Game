@@ -141,7 +141,7 @@ public class CaptureScript : MonoBehaviour
             //Debug.Log("Collision");
             // Verify if could be done less expensively
             int unitTeamNumber = unit.UnitNumber;
-            Debug.Log("unitnumber of unit entering in : " + gameObject.name + " : " + unit.UnitNumber);
+            //Debug.Log("unitnumber of unit entering in : " + gameObject.name + " : " + unit.UnitNumber);
             // Value is either 1 or 2. The unit number represent witch team they belong to. 
             if (unitTeamNumber == 1)
                 alliedUnitsPresent++;
