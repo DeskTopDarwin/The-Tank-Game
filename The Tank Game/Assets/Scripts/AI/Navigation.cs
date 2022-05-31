@@ -12,16 +12,21 @@ public class Navigation : MonoBehaviour
     public int destinationOffset = 4;
 
     private NavMeshAgent navMeshAgent;
+    private Animator animator;
+
     private Vector3 orignalDestination;
     private GameObject currentCapturePoint;
 
     static List<GameObject> capturePoints;
+
+    private const string isMoving = "IsMoving";
 
     // Start is called before the first frame update
     void Start()
     {
         unit = GetComponent<Unit>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();    
         //capturePoints = new List<GameObject>();
         if(capturePoints == null)
             capturePoints = FindGameObjectsWithLayer(LayerMask.NameToLayer("CapturePoint"));
@@ -66,6 +71,7 @@ public class Navigation : MonoBehaviour
                 GoToClosesCapturePoint();
             }
         }
+        animator.SetBool(isMoving, navMeshAgent.velocity.magnitude > 0.01f);
     }
 
     //to be used externaly

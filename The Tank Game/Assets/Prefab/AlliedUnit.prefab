@@ -42,6 +42,10 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6495536569143476220, guid: 637d01b256f6194498a29c8fe7c1a5a6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f717c792b1f0a946b164782c48de282, type: 2}
     - target: {fileID: 6495536569150753824, guid: 637d01b256f6194498a29c8fe7c1a5a6, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -286,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   isDead: 0
-  delayBeforDelete: 1
+  delayBeforDelete: 0.01
 --- !u!114 &6495536569588580405
 MonoBehaviour:
   m_ObjectHideFlags: 0
