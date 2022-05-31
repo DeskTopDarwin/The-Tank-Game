@@ -34,4 +34,9 @@ public class UIManager : MonoBehaviour
         alliedTickets.text = "Allied Points: " + tickets.alliedTickets;
         enemyTickets.text = "Enemy Points: " + tickets.enemyTickets;
     }
+
+    public void QuitAPP()
+    {
+        Application.Quit();
+    }
 }
