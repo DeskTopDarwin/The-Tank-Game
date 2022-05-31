@@ -24,7 +24,7 @@ public class EndGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ticketsSystem.enemyTickets <= 0 || player.GetComponent<PlayerHealth>().playerDead)
+        if (ticketsSystem.alliedTickets <= 0 || player.GetComponent<PlayerHealth>().playerDead)
         {
             //lose
             LostText.SetActive(true);
@@ -32,7 +32,7 @@ public class EndGame : MonoBehaviour
             
         }
 
-        if (ticketsSystem.alliedTickets <= 0)
+        if (ticketsSystem.enemyTickets <= 0)
         {
             //game won
             WinText.SetActive(true);

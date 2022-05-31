@@ -1854,7 +1854,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477479740}
-  m_LocalRotation: {x: 0.07126983, y: -2.2585604e-18, z: -7.789169e-18, w: 0.9974571}
+  m_LocalRotation: {x: 0.071269825, y: -0.0000000074316353, z: 5.3100163e-10, w: 0.9974571}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2491,7 +2491,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744693897}
-  m_LocalRotation: {x: 0.0531148, y: -0.0000000021477613, z: 1.1423918e-10, w: 0.99858844}
+  m_LocalRotation: {x: 0.0531148, y: 0.0000000021477615, z: -1.14239194e-10, w: 0.99858844}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2595,7 +2595,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866135391}
-  m_LocalRotation: {x: 0.05311481, y: -0.000000002217804, z: 1.1052221e-10, w: 0.99858844}
+  m_LocalRotation: {x: 0.05311481, y: 0.0000000022178028, z: -1.10502774e-10, w: 0.99858844}
   m_LocalPosition: {x: 4.343258, y: 3.21, z: -65.845566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2787,6 +2787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2114223943}
   - component: {fileID: 2114223944}
+  - component: {fileID: 2114223945}
   m_Layer: 0
   m_Name: GameFlow
   m_TagString: Untagged
@@ -2825,6 +2826,19 @@ MonoBehaviour:
   ticketsController: {fileID: 1510232286}
   WinText: {fileID: 1943316396}
   LostText: {fileID: 1515449246}
+--- !u!114 &2114223945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114223942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6604e6dd6d3c8444fb98dfb46bc3e9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7569303}
 --- !u!1001 &535613753231058150
 PrefabInstance:
   m_ObjectHideFlags: 0
