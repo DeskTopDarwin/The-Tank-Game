@@ -13,7 +13,7 @@ public class ATShooting : MonoBehaviour
     public float bulletVelocity;
     public float targetingDistance;
     public float firingSpeed;
-    private float currentReload;
+    public float currentReload;
 
     private Navigation nav;
 
@@ -39,7 +39,7 @@ public class ATShooting : MonoBehaviour
     private void TargetingBrain()
     {
         isShooting = false;
-        Vector3 vectorDistance = player.transform.position - transform.position;
+        Vector3 vectorDistance = player.transform.position - gunTip.position;
         float magnitude = vectorDistance.magnitude;
 
         if (magnitude <= targetingDistance)
@@ -47,11 +47,14 @@ public class ATShooting : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(gunTip.position, vectorDistance, out hit))
             {
+                Debug.DrawRay(gunTip.position, vectorDistance);
                 //Debug.DrawRay(gunTip.position, direction * hit.distance, Color.red);
                 PlayerHealth playerhpScript = hit.transform.GetComponent<PlayerHealth>();
 
                 if (playerhpScript != null)
                 {
+                    //set rotation to unit
+                    transform.rotation = Quaternion.LookRotation(vectorDistance);
                     isShooting = true;
                     if (currentReload <= 0)
                     {

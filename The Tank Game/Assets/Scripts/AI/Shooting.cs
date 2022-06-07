@@ -241,7 +241,7 @@ public class Shooting : MonoBehaviour
             Vector3 direction = target.transform.position - transform.position;
 
             //set rotation too look at target aka take aim
-            transform.transform.rotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.LookRotation(direction);
 
             //create a bullet and add velocity to it
             if (currentReloadTime <= 0)

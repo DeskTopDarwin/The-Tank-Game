@@ -15,7 +15,7 @@ public class ATRocketDamage : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 2, ~LayerMask.GetMask("CapturePoint")))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 0.5f, ~LayerMask.GetMask("CapturePoint")))
         {
             //Debug.Log("object hit: " + hit.transform.name);
             PlayerHealth gameObjectHit = hit.transform.GetComponent<PlayerHealth>();

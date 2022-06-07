@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7054832899733946941}
   - component: {fileID: 1154657631096040207}
   - component: {fileID: 3313812130509818235}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ATRocketPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
