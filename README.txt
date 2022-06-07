@@ -22,7 +22,6 @@ Capture Points with both team present on it will enter conflict and will
 go back to neutral if point wasn't capture prior.
 
 Known issues:
--Currently player is immoratal as AT units are yet to be added. WIP
 -Units that dies on capture points still count as present on the point.
  This causes points to be forever in conflict mode.
 -Turret behaves weird when the tank rolls.
