@@ -25,6 +25,7 @@ public class Spawning : MonoBehaviour
     public GameObject AlliedUnitPrefab;
     public GameObject EnemyUnitPrefab;
     public GameObject AtUnits;
+    public Transform playerTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class Spawning : MonoBehaviour
         {
             SpawnAlliedUnit();
             SpawnEnemyUnit();
+            SpawnEnemyATUnit();
         }
         currentTimerSpawning = spawningTimeIntervalDuringGame;
     }
@@ -44,14 +46,17 @@ public class Spawning : MonoBehaviour
         if (currentTimerSpawning <= 0)
         {
             currentTimerSpawning = spawningTimeIntervalDuringGame;
-            if (currentAmountUnitOnMap < maxUnitsOnMap)
+            for (int i = 0; i < unitToSpawnEachCycle; i++)
             {
-                for (int i = 0; i < unitToSpawnEachCycle; i++)
-                {
-                    SpawnAlliedUnit();
-                    SpawnEnemyUnit();
-                }
+                SpawnAlliedUnit();
+                SpawnEnemyUnit();
             }
+
+            for(int i = 0; i < unitToSpawnEachCycle/4; i++)
+            {
+                SpawnEnemyATUnit();
+            }
+            
         }
         //Debug.Log("ammount of unit spawned according to what spawned: " + currentAmountUnitOnMap);
     }
@@ -81,7 +86,7 @@ public class Spawning : MonoBehaviour
     private void SpawnAlliedUnit() 
     {
         //Debug.Log("Spawned allied unit");
-        currentAmountUnitOnMap++;
+        //currentAmountUnitOnMap++;
 
         Vector3 spawnPoint = alliedSpawn.position;
         spawnPoint = OffSetDestination(spawnPoint);
@@ -97,7 +102,7 @@ public class Spawning : MonoBehaviour
     private void SpawnEnemyUnit()
     {
         //Debug.Log("Spawned enemy unit");
-        currentAmountUnitOnMap++;
+        //currentAmountUnitOnMap++;
 
         Vector3 spawnPoint = enemySpawn.position;
         spawnPoint = OffSetDestination(spawnPoint);
@@ -105,6 +110,18 @@ public class Spawning : MonoBehaviour
         GameObject spawnedUnit = Instantiate(EnemyUnitPrefab, spawnPoint, Quaternion.identity);
         spawnedUnit.GetComponent<Unit>().UnitNumber = enemyUnitNumber;
         spawnedUnit.GetComponent<Health>().maxHealth = unitHealth;
+    }
+
+    private void SpawnEnemyATUnit()
+    {
+        Vector3 spawnPoint = enemySpawn.position;
+        spawnPoint = OffSetDestination(spawnPoint);
+
+        GameObject spawnedUnit = Instantiate(AtUnits, spawnPoint, Quaternion.identity);
+        spawnedUnit.GetComponent<Unit>().UnitNumber = enemyUnitNumber;
+        spawnedUnit.GetComponent<Health>().maxHealth = unitHealth;
+        //sets target of AT, ik the names are weird...
+        spawnedUnit.GetComponent<ATShooting>().player = playerTarget;
     }
 
     public void RemoveSpawnedUnitCount(int value)

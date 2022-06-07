@@ -1629,6 +1629,7 @@ MonoBehaviour:
   AlliedUnitPrefab: {fileID: 7163642170036394242, guid: 8e6e6999aa15d0741bfe3a780f248c9a, type: 3}
   EnemyUnitPrefab: {fileID: 1946233580230888233, guid: 2ac28421fccb44e45b3c15d3f0696a3f, type: 3}
   AtUnits: {fileID: 7189481862942189841, guid: b96c81e30f599d249aef9304e136ac26, type: 3}
+  playerTarget: {fileID: 1273093320}
 --- !u!4 &1052841404
 Transform:
   m_ObjectHideFlags: 0
@@ -1714,7 +1715,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1117022, y: 1}
+    m_SensorSize: {x: 2.109929, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2157,7 +2158,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1117022, y: 1}
+    m_SensorSize: {x: 2.109929, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2416,7 +2417,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1117022, y: 1}
+    m_SensorSize: {x: 2.109929, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2794,7 +2795,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1117022, y: 1}
+    m_SensorSize: {x: 2.109929, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

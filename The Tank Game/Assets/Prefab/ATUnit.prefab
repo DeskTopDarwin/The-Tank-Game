@@ -7,13 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1144530993, guid: d11cbf21f0ca392438b34a7f5dfb5f1e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ab1551ccdca8ea46ba76bd8e788880a, type: 2}
     - target: {fileID: 1565898583, guid: d11cbf21f0ca392438b34a7f5dfb5f1e, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5989137302137884022, guid: d11cbf21f0ca392438b34a7f5dfb5f1e, type: 3}
       propertyPath: m_Name
-      value: ToonSoldier_demo
+      value: ATUnit
       objectReference: {fileID: 0}
     - target: {fileID: 5989137302138376470, guid: d11cbf21f0ca392438b34a7f5dfb5f1e, type: 3}
       propertyPath: m_RootOrder

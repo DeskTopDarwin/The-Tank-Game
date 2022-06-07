@@ -47,7 +47,7 @@ public class ATShooting : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(gunTip.position, vectorDistance, out hit))
             {
-                Debug.DrawRay(gunTip.position, vectorDistance);
+                //Debug.DrawRay(gunTip.position, vectorDistance);
                 //Debug.DrawRay(gunTip.position, direction * hit.distance, Color.red);
                 PlayerHealth playerhpScript = hit.transform.GetComponent<PlayerHealth>();
 
